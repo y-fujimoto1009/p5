@@ -48,4 +48,14 @@
     <iframe src="s25h077/index.html" title="s25h077"></iframe>
   </div>
 </body>
+  <script>
+(function () {
+  const total = 10;                          // 全ページ数
+  const m = location.pathname.match(/index(\d*)\.html/);
+  const n = (m && m[1]) ? parseInt(m[1], 10) : 1;   // 今が何ページ目か
+  const next = n >= total ? 1 : n + 1;              // 最後なら1に戻る
+  const nextFile = next === 1 ? 'index.html' : 'index' + next + '.html';
+  setTimeout(() => { location.href = nextFile; }, 10000);
+})();
+</script>
 </html>
